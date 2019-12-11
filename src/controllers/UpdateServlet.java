@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import org.jboss.logging.Message;
+
 import utils.DBUtil;
 
 /**
@@ -54,7 +55,7 @@ public class UpdateServlet extends HttpServlet {
             em.close();
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("message_id");
+            request.getSession().removeAttribute("task_id");
 
             // indexページへリダイレクト
             response.sendRedirect(request.getContextPath() + "/index");
